@@ -24,11 +24,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="gs-rest-service" />
-        <module name="WeatherService" />
+        <module name="weather-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="gs-rest-service" target="1.8" />
+      <module name="weather-service" target="1.8" />
       <module name="WeatherService" target="1.8" />
     </bytecodeTargetLevel>
   </component>

@@ -39,7 +39,9 @@ public class WeatherControllerTests {
    @Test
     public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
-        this.mockMvc.perform(get("/weather")).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/weather"))
+                .andDo(print())
+                .andExpect(status().isOk())
                 .andExpect(jsonPath("$.tempCelsius").value(40));
 
     }
