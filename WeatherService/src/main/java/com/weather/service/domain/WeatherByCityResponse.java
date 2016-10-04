@@ -1,16 +1,16 @@
-package com.weather.service;
+package com.weather.service.domain;
 
-public class Weather {
+public class WeatherByCityResponse {
 
     private String todayDate;
     private String cityName;
     private  String weatherDescription;
-    private  int tempCelsius;
-    private  int tempFahrenheit;
+    private  String tempCelsius;
+    private  String tempFahrenheit;
     private  String sunriseTime;
     private  String sunsetTime;
 
-    public Weather(String todayDate, String cityName, String weatherDescription, int tempCelsius, int tempFahrenheit, String sunriseTime, String sunsetTime) {
+    public WeatherByCityResponse(String todayDate, String cityName, String weatherDescription, String tempCelsius, String tempFahrenheit, String sunriseTime, String sunsetTime) {
         this.todayDate = todayDate;
         this.cityName = cityName;
         this.weatherDescription = weatherDescription;
@@ -20,7 +20,7 @@ public class Weather {
         this.sunsetTime = sunsetTime;
     }
 
-    public Weather() {
+    public WeatherByCityResponse() {
 
     }
 
@@ -36,11 +36,11 @@ public class Weather {
         this.weatherDescription = weatherDescription;
     }
 
-    public void setTempCelsius(int tempCelsius) {
+    public void setTempCelsius(String tempCelsius) {
         this.tempCelsius = tempCelsius;
     }
 
-    public void setTempFahrenheit(int tempFahrenheit) {
+    public void setTempFahrenheit(String tempFahrenheit) {
         this.tempFahrenheit = tempFahrenheit;
     }
 
@@ -64,11 +64,11 @@ public class Weather {
         return weatherDescription;
     }
 
-    public int getTempCelsius() {
+    public String getTempCelsius() {
         return tempCelsius;
     }
 
-    public int getTempFahrenheit() {
+    public String getTempFahrenheit() {
         return tempFahrenheit;
     }
 

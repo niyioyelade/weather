@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/WeatherService.iml" filepath="$PROJECT_DIR$/WeatherService.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../gs-rest-service-backup/gs-rest-service/complete/gs-rest-service.iml" filepath="$PROJECT_DIR$/../../gs-rest-service-backup/gs-rest-service/complete/gs-rest-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/weather-service.iml" filepath="$PROJECT_DIR$/weather-service.iml" />
     </modules>
   </component>
 </project>
