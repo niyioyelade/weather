@@ -35,4 +35,8 @@ public class OpenWeatherResponse {
     public Sys getSys() {
         return sys;
     }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
 }

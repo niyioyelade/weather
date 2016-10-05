@@ -15,5 +15,18 @@ Running Instructions
 
 The following tasks are outstanding in the codes
 
-WeatherController.currentWeather - Do restful method parameter validation using @Valid or manual coding. 
+Functionality
+1. Sunrise and sunset time need to be in 12hour format with am/pm, currently it's 24hr format without am/pm.
+
+Code Quality Improvements
+1. WeatherController.currentWeather - Do restful method parameter validation using @Valid or manual coding. 
 Throw hppt error code 400 for bad request if cityName is empty or null
+
+2. Improve logging - Possibly use AOP aspects and/a propper logging frmework e.g. log4j
+3. Improve test line, branch  and method coverage
+4. Use code quality analysis tools like SOnarQube or Cobertura to further analyse code quality and fix issues
+5. Improve error handling when external API is called
+6. Consider making calls to external API asynchronous - Completable Futures comes to mind
+7. Finish off WeatherController unit tests, had a time wasting issue with Mockmvc from spring framework
+8. Include more asserts in unit tests to improve confidence on production readiness
+

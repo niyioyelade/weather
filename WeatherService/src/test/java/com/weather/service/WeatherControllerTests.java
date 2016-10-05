@@ -15,12 +15,6 @@
  */
 package com.weather.service;
 
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-
 import com.weather.service.domain.WeatherByCityResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +24,13 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -49,19 +50,12 @@ public class WeatherControllerTests {
        expected.setTempCelsius("40");
        expected.setSunsetTime("9:00");
        when(weatherService.weatherByCity(anyString())).thenReturn(expected);
-       /* this.mockMvc.perform(get("/weather"))
+        /*this.mockMvc.perform(get("/weather"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.tempCelsius").value(40));*/
+                .andExpect(jsonPath("$.tempCelsius").value("40"));*/
 
     }
 
-    /*@Test
-    public void paramGreetingShouldReturnTailoredMessage() throws Exception {
-
-        this.mockMvc.perform(get("/weather").param("city", "Spring Community"))
-                .andDo(print()).andExpect(status().isOk())
-                .andExpect(jsonPath("$.content").value("Hello Spring Community"));
-    }*/
 
 }

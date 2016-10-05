@@ -13,10 +13,12 @@ public class WeatherController {
     private WeatherService weatherService;
 
     @RequestMapping("/weather")
-    public WeatherByCityResponse currentWeather(@RequestParam(value="city", defaultValue="London") String city) {
-
+    public WeatherByCityResponse weather(@RequestParam(value = "city") String city) {
         //parameter check - city name should not be null or empty
-
         return weatherService.weatherByCity(city);
     }
+
+
+
+
 }
