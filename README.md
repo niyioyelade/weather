@@ -25,7 +25,6 @@ Functionality
 Code Quality Improvements
 1. WeatherController.currentWeather - Do restful method parameter validation using @Valid or manual coding. 
 Throw hppt error code 400 for bad request if cityName is empty or null
-
 2. Improve logging - Possibly use AOP aspects and/a propper logging frmework e.g. log4j
 3. Improve test line, branch  and method coverage
 4. Use code quality analysis tools like SOnarQube or Cobertura to further analyse code quality and fix issues
@@ -34,4 +33,4 @@ Throw hppt error code 400 for bad request if cityName is empty or null
 7. Finish off WeatherController unit tests, had a time wasting issue with Mockmvc from spring framework
 8. Include more asserts in unit tests to improve confidence on production readiness
 9. Some BDD automation acceptance tests using Java and Selenium (or any other alternatives) is recommended to automate the testing of the UI end to end user journey.
-
+10. UI can do with some formatting.

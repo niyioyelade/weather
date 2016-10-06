@@ -1,74 +1,80 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>Weather By City</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    </head>
 
-    <body>
+<html>
 
-        <form class="form-horizontal">
-            <fieldset>
+<head>
+    <meta charset="UTF-8">
 
-                <!-- Form Name -->
-                <legend>Weather Information By City</legend>
+    <title>Weather Application</title>
+</head>
 
-                <!-- Select Basic -->
-                <!--<div class="form-group">-->
-                    <label class="col-md-4 control-label" for="city">Select Basic</label>
-                    <div class="col-md-5">
-                        <select id="city" name="city" class="form-control">
-                            <option value="London">London</option>
-                            <option value="Hong Kong">Hong Kong</option>
-                        </select>
-                    </div>
-                <!--</div>-->
+<body class="Frame">
+<div id="Header" class="Row">
+    <h1>Weather Application</h1>
+</div>
+<div id="Content" class="Row Expand">
+    <h2>Select City</h2>
+    <form id="RequestForm">
+        <fieldset>
 
-                <!-- Button -->
-                <div class="form-group">
-                    <div class="col-md-4">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Today's Weather</button>
-                    </div>
-                </div>
+            <!-- Form Name -->
+            <legend>Weather Information By City</legend>
 
-            </fieldset>
+            <!-- Select Basic -->
+            <!--<div class="form-group">-->
+            <label class="col-md-4 control-label" for="city">Select City</label>
+            <div class="col-md-5">
+                <select id="city" name="city" class="form-control">
+                    <option value="London">London</option>
+                    <option value="Hong Kong">Hong Kong</option>
+                </select>
+            </div>
 
-        </form>
+            <p><button type="reset">reset form</button> <button type="submit">Submit</button></p>
 
-        <!-- Text input-->
-        <div class="form-group">
-            <label class="col-md-4 control-label">City Name</label>
-            <label id="cityName" class="col-md-4 control-label"></label>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label">Today's Date</label>
-            <label id="todayDate" class="col-md-4 control-label"></label>
-        </div>
+        </fieldset>
 
+    </form>
+    <h3>Today's Weather Forcast</h3>
+    <p><span class="Label">City Name</span> <em id="cityName"></em></p>
+    <p><span class="Label">Today's Date</span> <em id="todayDate"></em></p>
+    <p><span class="Label">Weather Description</span> <em id="weatherDescription"></em></p>
+    <p><span class="Label">Temp Celsius</span> <em id="tempCelsius"></em></p>
+    <p><span class="Label">Temp Fahrenheit</span> <em id="tempFahrenheit"></em></p>
+    <p><span class="Label">Sunrise Time</span> <em id="sunriseTime"></em></p>
+    <p><span class="Label">Sunset Time</span> <em id="sunsetTime"></em></p>
 
 
-    </body>
+</div>
 
+<script type="text/javascript" src="./jsonhttprequest.js"></script>
+<script type="text/javascript">
+    var request = new JSONHttpRequest();
 
-    <script>
-        var submitData = function(){
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-
-                    //process json response
-                    document.getElementById('cityName').innerHTML = this.responseText;
-                    document.getElementById('todayDate').innerHTML = this.response.todayDate;
-                    //ADD THE REST OF THE FIELDS
+    document.forms['RequestForm'].onsubmit = function() {
+        try {
+            request.onreadystatechange = function() {
+                if (request.readyState == 4) {
+                    document.getElementById('cityName').innerHTML = request.responseJSON.cityName;
+                    document.getElementById('todayDate').innerHTML = request.responseJSON.todayDate;
+                    document.getElementById('weatherDescription').innerHTML = request.responseJSON.weatherDescription;
+                    document.getElementById('tempCelsius').innerHTML = request.responseJSON.tempCelsius;
+                    document.getElementById('tempFahrenheit').innerHTML = request.responseJSON.tempFahrenheit;
+                    document.getElementById('sunriseTime').innerHTML = request.responseJSON.sunriseTime;
+                    document.getElementById('sunsetTime').innerHTML = request.responseJSON.sunsetTime;
                 }
-            };
+            }
             var option = document.getElementById("city");
-            xhttp.open("GET", "http://localhost:8080/weather?city=".concat(option.value), true);
-            xhttp.send();
-
+            request.strictJSON = true;
+            request.open("GET", "http://localhost:8080/weather?city=".concat(option.value), true);
+            request.sendJSON();
         }
-        document.getElementById("singlebutton").addEventListener("click", submitData());
-    </script>
+        catch (e) {
+            alert('An error occured: '+e);
+        }
+        return false;
+    }
+</script>
+</body>
 
 </html>
