@@ -43,4 +43,11 @@ public class WeatherServiceTest {
 
 
     }
+    @Test
+    public void testFormatTime(){
+        String timeStampInSecs = "12345678";
+        String expected = "10:21pm";
+        String actual = WeatherService.formatTime(timeStampInSecs);
+        assertEquals(expected, actual);
+    }
 }

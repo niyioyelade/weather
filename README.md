@@ -18,8 +18,7 @@ The following tasks are outstanding in the codes
 
 To Do
 Functionality
-1. Sunrise and sunset time need to be in 12hour format with am/pm, currently it's 24hr format without am/pm.
-2. Add more properties to the toString method of OpenWeatherResponse to improve logging message
+1. Add more properties to the toString method of OpenWeatherResponse to improve logging message
 
 
 Code Quality Improvements

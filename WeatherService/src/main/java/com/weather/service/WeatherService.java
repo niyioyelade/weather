@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 public interface WeatherService {
 
     String UI_DATE_FORMAT = "dd/MM/yyyy";
-    String TIME_FORMAT = "HH:mm";
+    String TIME_FORMAT = "hh:mm a";
     double KELVIN_TO_CALSIUS_DIFFERENCE = 273.15;
     String TEMPERATURE_PRECISION = "#0.00";
 
@@ -59,7 +59,11 @@ public interface WeatherService {
         if(StringUtils.isEmpty(timeStamp)){
             return "";
         }
-        return new SimpleDateFormat(TIME_FORMAT).format(new Date(Long.parseLong(timeStamp) * 1000));
+        String dateString = new SimpleDateFormat(TIME_FORMAT).format(new Date(Long.parseLong(timeStamp) * 1000));
+        StringBuilder sb = new StringBuilder();
+        sb.append(dateString.substring((dateString.startsWith("0")) ? 1 : 0, dateString.length() - 3));
+        sb.append(dateString.substring(dateString.length() - 2, dateString.length()).toLowerCase());
+        return sb.toString();
     }
     static String buildRequestUrl(String cityName) {
         //make up the url
