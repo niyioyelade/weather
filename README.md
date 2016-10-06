@@ -16,15 +16,11 @@ Running Instructions
 
 The following tasks are outstanding in the codes
 
+To Do
 Functionality
 1. Sunrise and sunset time need to be in 12hour format with am/pm, currently it's 24hr format without am/pm.
-2. UI work is yet to be done. The plan is to host the index.html on http://localhost:8080 which currently is just a hello world html page
-Future work is as follows:
-a. Put a drop down list of cities on the UI
-b. Have a listener that fires off a javascript function when a city is selected
-c. On selection, send an async GET request (ajax) to the server on http://localhost:8080/weather?city=London
-d. Interprete the result in the onSUccess callback function
-e. Display extracted result tests on html page with minimal formating e.g. one item per row.
+2. Add more properties to the toString method of OpenWeatherResponse to improve logging message
+
 
 Code Quality Improvements
 1. WeatherController.currentWeather - Do restful method parameter validation using @Valid or manual coding. 

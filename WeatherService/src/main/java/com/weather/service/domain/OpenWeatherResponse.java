@@ -39,4 +39,13 @@ public class OpenWeatherResponse {
     public void setMain(Main main) {
         this.main = main;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getName());
+        sb.append(this.getMain() == null ? "" : this.getMain().getTemp());
+        //more properties should be added to this string e.g description, etc.
+        return sb.toString();
+    }
 }

@@ -1,10 +1,74 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Weather By City - Please select City name</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-<p>Hello world</p>
-</body>
+    <head>
+        <title>Weather By City</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+
+    <body>
+
+        <form class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Weather Information By City</legend>
+
+                <!-- Select Basic -->
+                <!--<div class="form-group">-->
+                    <label class="col-md-4 control-label" for="city">Select Basic</label>
+                    <div class="col-md-5">
+                        <select id="city" name="city" class="form-control">
+                            <option value="London">London</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                        </select>
+                    </div>
+                <!--</div>-->
+
+                <!-- Button -->
+                <div class="form-group">
+                    <div class="col-md-4">
+                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Today's Weather</button>
+                    </div>
+                </div>
+
+            </fieldset>
+
+        </form>
+
+        <!-- Text input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label">City Name</label>
+            <label id="cityName" class="col-md-4 control-label"></label>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label">Today's Date</label>
+            <label id="todayDate" class="col-md-4 control-label"></label>
+        </div>
+
+
+
+    </body>
+
+
+    <script>
+        var submitData = function(){
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    //process json response
+                    document.getElementById('cityName').innerHTML = this.responseText;
+                    document.getElementById('todayDate').innerHTML = this.response.todayDate;
+                    //ADD THE REST OF THE FIELDS
+                }
+            };
+            var option = document.getElementById("city");
+            xhttp.open("GET", "http://localhost:8080/weather?city=".concat(option.value), true);
+            xhttp.send();
+
+        }
+        document.getElementById("singlebutton").addEventListener("click", submitData());
+    </script>
+
 </html>

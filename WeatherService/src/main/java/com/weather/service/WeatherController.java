@@ -17,8 +17,4 @@ public class WeatherController {
         //parameter check - city name should not be null or empty
         return weatherService.weatherByCity(city);
     }
-
-
-
-
 }
