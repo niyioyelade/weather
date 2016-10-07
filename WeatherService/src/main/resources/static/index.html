@@ -62,6 +62,10 @@
                     document.getElementById('tempFahrenheit').innerHTML = request.responseJSON.tempFahrenheit;
                     document.getElementById('sunriseTime').innerHTML = request.responseJSON.sunriseTime;
                     document.getElementById('sunsetTime').innerHTML = request.responseJSON.sunsetTime;
+
+                    if(request.responseJSON.error != null){
+                        alert(request.responseJSON.error);
+                    }
                 }
             }
             var option = document.getElementById("city");
