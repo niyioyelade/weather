@@ -14,11 +14,6 @@ Running Instructions
 3. Launch browser on http://localhost:8080
 4. The server side can be tested directly from the browser with http://localhost:8080/weather?city=London
 
-The following tasks are outstanding in the codes
-
-To Do
-Functionality
-1. Add more properties to the toString method of OpenWeatherResponse to improve logging message
 
 
 Code Quality Improvements
@@ -33,3 +28,4 @@ Throw hppt error code 400 for bad request if cityName is empty or null
 8. Include more asserts in unit tests to improve confidence on production readiness
 9. Some BDD automation acceptance tests using Java and Selenium (or any other alternatives) is recommended to automate the testing of the UI end to end user journey.
 10. UI can do with some formatting.
+11. Use java constants for all magic numbers and strings including empty string.

@@ -43,9 +43,21 @@ public class OpenWeatherResponse {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
+        sb.append("\n");
+        sb.append("City Name: ");
         sb.append(this.getName());
+        sb.append("\n");
+        sb.append("Temp in Kelvin: ");
         sb.append(this.getMain() == null ? "" : this.getMain().getTemp());
-        //more properties should be added to this string e.g description, etc.
+        sb.append("\n");
+        sb.append("Weather description: ");
+        sb.append((this.getWeather() == null || this.getWeather().length == 0) ? "" : this.getWeather()[0].getDescription());
+        sb.append("\n");
+        sb.append("Sunrise timestamp: ");
+        sb.append(this.getSys() == null ? "" : this.getSys().getSunrise());
+        sb.append("\n");
+        sb.append("Sunset timestamp: ");
+        sb.append(this.getSys() == null ? "" : this.getSys().getSunset());
         return sb.toString();
     }
 }
